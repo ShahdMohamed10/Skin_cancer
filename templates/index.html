@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Cancer Detection | AI-Powered Analysis</title>
+    <meta name="description" content="Advanced skin cancer detection using artificial intelligence. Upload your skin images for instant analysis and early detection.">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Skin Cancer Detection</h1>
+            <p>Advanced AI-powered analysis for early detection</p>
+        </header>
+        
+        <main>
+            <div class="upload-container" id="upload-container">
+                <div class="upload-area" id="upload-area">
+                    <div class="upload-content" id="upload-content">
+                        <img src="{{ url_for('static', filename='images/upload-icon.png') }}" alt="Upload" id="upload-icon">
+                        <h2>Upload Your Image</h2>
+                        <p>Drag and drop your skin image here<br>or click to select from your device</p>
+                        <input type="file" id="file-input" accept="image/*" hidden>
+                        <button class="upload-button" onclick="document.getElementById('file-input').click()">
+                            Choose Image
+                        </button>
+                        <div class="supported-formats">
+                            <p>Supported formats: JPG, PNG, JPEG</p>
+                        </div>
+                    </div>
+                    <div class="preview-area" id="preview-area" style="display: none;">
+                        <img id="preview-image" src="#" alt="Preview">
+                        <button class="reset-button" onclick="resetUpload()">
+                            Upload Different Image
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="result-container" id="result-container" style="display: none;">
+                    <h2>Detection Result</h2>
+                    <div class="result-content">
+                        <div class="result-header">
+                            <p class="result-text" id="result-text"></p>
+                            <span class="risk-level" id="risk-level"></span>
+                        </div>
+                        <div class="result-details">
+                            <div class="probability-bar">
+                                <div class="probability-fill" id="probability-fill"></div>
+                            </div>
+                            <p class="probability-text" id="probability-text"></p>
+                        </div>
+                        <div class="additional-info" id="additional-info">
+                            <div class="info-text">
+                                <p><strong>Important:</strong> This is an AI-assisted analysis tool and should not be used as a substitute for professional medical diagnosis. Please consult a healthcare professional for proper medical advice and diagnosis.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="loading" id="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Analyzing your image...</p>
+                    <span class="loading-subtext">This may take a few moments</span>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p class="department">Department of Computer Science, Modern Academy</p>
+            <p class="acknowledgment">Thank you for exploring this project. Special thanks to the Department of Computer Science at Modern Academy for their support.</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> 
